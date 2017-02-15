@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="webroot/css/controles.css">
     <link rel="stylesheet" href="webroot/css/login.css">
+    <link rel="stylesheet" href="webroot/css/fontello.css">
 
     <title>Login MVC</title>
 </head>
 <body>
     <div id="centrado">
     		<form action="index.php?location=login" method="post" name="formLogin">
-    			<input id="usuario" name="usuario" type="text" placeholder="Usuario">
+    			<span class="icon-user-o icon"></span><input id="usuario" name="usuario" type="text" placeholder="Usuario">
     			<br>
-    			<input id="password" name="password" type="password" placeholder="Contraseña" >
+    			<span class="icon-key icon"></span><input id="password" name="password" type="password" placeholder="Contraseña" >
     			<br>
                 <!-- Aqui mostraremos los mensajes de error -->
     			<div id="msg"></div>

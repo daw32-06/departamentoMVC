@@ -1,36 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pagina principal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="webroot/css/controles.css">
-    <link rel="stylesheet" href="webroot/css/login.css">
+    <link rel="stylesheet" href="webroot/css/fontello.css">
+    <link rel="stylesheet" href="webroot/css/main_style.min.css">
     <style>
-        body{
-            background-color:#ccc;
-            padding: 0;
-            margin:0;
-        }
-
-        #viewCode{
-            position: fixed;
-            background-color:#0f0;
-            border:solid 1px #070;
-            opacity:0.7;
-            padding:20px;
-            border-radius: 8px;
-            bottom:20px;
-            right:20px;
-            font-family: roboto;
-        }
-        #viewCode a {
-            text-decoration: none;
-            color:#070;
-        }
 
 
     </style>
 </head>
 <body>
+
+    <header>
+        <h1>Mantenimiento Departamento Multicapa - Juan José Rubio Iglesias</h1><a  href="index.php?location=logoff"><span class="icon-logout icon"></span><span>Cerrar Sesion</span></a>
+    </header>
     <?php
     /**
     *    Cargamos la vista dependiendo de la localizacion en caso de no encontrar la vista va a la pagina principal
