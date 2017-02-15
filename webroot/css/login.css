@@ -1,0 +1,38 @@
+body{
+	background-color: #4DD0E1;
+	margin-top: 10%;
+}
+input:-webkit-autofill
+{
+	background-color: red;
+}
+
+#centrado
+{
+	margin:auto;
+	background-color: #fff;
+	width: 400px;
+	border-radius: 3px;
+	border:none;
+	box-shadow: 2px 2px 2px #777;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 20px;
+	text-align: center;
+}
+#usuario{
+	background-image: url("img/ico/user.png");
+	background-position: right;
+	background-repeat: no-repeat;
+	padding-right: 20px;
+}
+#password{
+	background-image: url("img/ico/pass.png");
+	background-position: right;
+	background-repeat: no-repeat;
+	padding-right: 20px;
+}
+#msg{
+	font-size: 0.7em;
+	color:#f00;
+}
