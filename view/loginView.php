@@ -23,7 +23,7 @@
     			<input type="submit" name="enviar" value="ENVIAR" class="bgblue">
 
     		</form>
-    	</div>
+
 
     </div>
 </body>
