@@ -1,22 +1,22 @@
 <?php
+    // Incluimos la clase DBPDO.php que es la que ejecuta las consultas preparadas
+    include_once("DBPDO.php");
     /**
-    *  @todo Clase para las consultas PDO de la clase Usuario
-    *  @author Juan José Rubio
+    *  Clase para las consultas PDO de la clase Usuario
+    *  @author Juan José Rubio <admin@tallernt.es>
     *  @author Santiago Huerga
     *  @author Pablo Mora
     **/
-
-    // Incluimos la clase DBPDO.php que es la que ejecuta las consultas preparadas
-    include_once("DBPDO.php");
 
 
 
 
     class UsuarioPDO{
         /**
-        *  @param String $codUsuario : Codigo del usuario
-        *  @param String $password : Contraseña del usuario
-        *  @return array[String] : Array del usuario
+        * Funcion que consulta en la base de datos si existe el Usuario
+        * @param String $codUsuario : Codigo del usuario
+        * @param String $password : Contraseña del usuario
+        * @return array[String] : Array del usuario
         **/
         public static function validarUsuario($codUsuario, $password){
             // Inicializamos el $arrayUsuario
@@ -26,8 +26,6 @@
             // Ejecutamos la consulta preparada y la guardamos en el $resultSet
             $resultSet=DBPDO::ejecutarConsulta($consultaUsuario,[$codUsuario,$password]);
             // Comprobamos cuantos usuarios se han devuelto
-
-
 
             if($resultSet->rowCount())
             {

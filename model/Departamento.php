@@ -99,7 +99,7 @@
         /** Metodos para el trabajo PDO de departamentos **/
 
         /**
-        * Devuelve un objeto Departamento
+        * Llama a la clase DepartamentoPDO y devuelve un objeto Departamento
         * @param string $codDepartamento Codigo del departamento
         * @return Departamento Devuelve el objeto departamento
         **/

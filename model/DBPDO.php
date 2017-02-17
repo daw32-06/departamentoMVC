@@ -1,17 +1,24 @@
 <?php
+	// Incluimos la configuracion de la base de datos
 	/**
-	*  @todo Clase para consultas preparadas mediante PDO
-	*  @author Juan José Rubio
-	*  @author Santiago Huerga
-	*  @author Pablo Mora
+	 * @uses config/constDB.php
+	 */
+	require_once 'config/constDB.php';
+
+	/**
+	* Clase DBPDO
+	*
+	* Clase para consultas preparadas mediante PDO
+	* @author Juan José Rubio <admin@tallernt.es>
+	* @author Santiago Huerga
+	* @author Pablo Mora
 	**/
 
-	// Incluimos la configuracion de la base de datos
-	require_once 'config/constDB.php';
 
 	class DBPDO
 	{
 		/**
+		* Funcion para ejecutar una consulta preparada
 		* @param String $str_query --> Consulta preparada SQL
 		* @param array[String] $param_query --> Paramestros de la consulta
 		* @return null o PDOException o ResultSet con la informacion del registro

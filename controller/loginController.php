@@ -1,7 +1,7 @@
 <?php
     /**
-    *    @todo Controlador de Login 
-    *    @author Juan Jose Rubio Iglesias
+    *    @todo Controlador de Login
+    *    @author Juan Jose Rubio Iglesias <admin@tallernt.es>
     *    @author Santiago Huerga
     *    @author Pablo Mora
     **/

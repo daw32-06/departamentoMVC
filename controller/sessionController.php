@@ -1,8 +1,8 @@
 <?php
 
     /**
-    *  @todo Libreria para gestionar las sesiones
-    *  @author Juan José Rubio Iglesias
+    * Libreria para gestionar las sesiones
+    * @author Juan José Rubio Iglesias <admin@tallernt.es>
     */
 
     class SessionController{
