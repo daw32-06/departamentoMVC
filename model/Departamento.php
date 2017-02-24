@@ -5,7 +5,7 @@
     *
     * @uses DepartamentoPDO Utiliza la clase DepartamentoPDO para usar la base de datos con PDO
     **/
-    include_once("departamentoPDO.php");
+    include_once("DepartamentoPDO.php");
 
     /**
     * Clase Departamento
@@ -40,7 +40,7 @@
         {
             $this->codDepartamento = $codDepartamento;
             $this->descDepartamento = $descDepartamento;
-            $this->volumenNegocio = $volNegocio;
+            $this->volumenNegocio = $volumenNegocio;
             $this->disabled = null;
         }
 
@@ -50,7 +50,7 @@
         * Devuelve el codigo del departamento
         * @return string Codigo del departamento
         **/
-        public static function getCodDepartamento()
+        public function getCodDepartamento()
         {
             return $this->codDepartamento;
         }
@@ -59,16 +59,17 @@
         * Devuelve el codigo del departamento
         * @return string Descripcion del departamento
         **/
-        public static function getDescDepartamento()
+        public function getDescDepartamento()
         {
             return $this->descDepartamento;
+            //return $this->descDepartamento;
         }
 
         /**
         * Devuelve el Volumen de negocio del departamento
         * @return float Volumen de negocio del departamento
         **/
-        public static function getVolumenNegocio()
+        public function getVolumenNegocio()
         {
             return $this->volumenNegocio;
         }
@@ -77,7 +78,7 @@
         * Devuelve si el departamento esta habilitado o deshabilitado
         * @return boolean Departamento Habilitado o Deshabilitado
         **/
-        public static function isDisabled()
+        public function isDisabled()
         {
             if($this->disabled!=null){
                 return true;
@@ -90,7 +91,7 @@
         * Devuelve la fecha de la baja logica del departamento
         * @return string Fecha de la baja logica o null si esta activo
         **/
-        public static function getDisabledDate()
+        public function getDisabledDate()
         {
             return $this->disabled;
         }
@@ -105,7 +106,12 @@
         **/
         public static function getDepartamento($codDepartamento)
         {
-
+            $departamento = null;
+            $departamentos = DepartamentoPDO::getDepartamento($codDepartamento); //Array con la información del departamento
+            if ($departamentos) {//Si el array contiene algo, se crea el objeto
+                $departamento = new Departamento($codDepartamento, $departamentos['descDepartamento'], $departamentos['volumenDeNegocio']);
+            }
+            return $departamento;
         }
 
         /**
@@ -130,7 +136,13 @@
         */
         public static function listDepartamentos($descDepartamento,$firstReg, $lastReg, $disabled)
         {
-
+            $matrizDepartamentos = DepartamentoPDO::listDepartamentos($descDepartamento,0,0,false);
+            $arrayDepartamentos = [];
+            foreach ($matrizDepartamentos as $departamento) {
+                $nuevoDep = new Departamento($departamento['codDepartamento'], $departamento['descDepartamento'], $departamento['volumenDeNegocio']);
+                array_push($arrayDepartamentos, $nuevoDep);
+            }
+            return $arrayDepartamentos;
         }
 
         /**

@@ -1,7 +1,7 @@
 <?php
     /**
-    *   @todo Enrutador principal que carga los controladores dependiendo de la sesion
-    *         o llama al controlador dependiendo del parametro "location" de la url
+    *   Enrutador principal - Front Controller
+    *   Enrutador principal que carga los controladores dependiendo de la sesion o llama al controlador dependiendo del parametro "location" de la url
     *   @author Juan José Rubio Iglesias
     */
 

@@ -6,6 +6,7 @@
 * Ultima Revision: 16/02/2017
 **/
 
+include_once("DBPDO.php");
 
 class DepartamentoPDO {
 
@@ -16,7 +17,15 @@ class DepartamentoPDO {
     **/
     public static function getDepartamento($codDepartamento)
     {
-
+        $departamentos = [];
+        $query = "select * from departamento where codDepartamento=?";
+        $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
+        if ($resultSet->rowCount()) {
+            $objDepartamento = $resultSet->fetchObject();
+            $departamentos['descDepartamento'] = $objDepartamento->descDepartamento;
+            $departamentos['volumenDeNegocio'] = $objDepartamento->volumenDeNegocio;
+        }
+        return $departamentos;
         //Return Array del departamento
     }
 
@@ -29,8 +38,13 @@ class DepartamentoPDO {
     **/
     public static function addDepartamento($codDepartamento, $descDepartamento, $volumenNegocio)
     {
-
-        //Return boolean
+        $altaCorrecta = true;
+        $sentenciaSQL = "insert into departamento (codDepartamento,descDepartamento,volumenDeNegocio) values(?,?,?)";
+        $resultSet = DBPDO::ejecutarConsulta($sentenciaSQL, [$codDepartamento, $descDepartamento, $volumenDeNegocio]);
+        if ($resultSet->rowCount() != 1) {
+            $altaCorrecta = false;
+        }
+        return $altaCorrecta;
     }
 
     /**
@@ -54,7 +68,13 @@ class DepartamentoPDO {
     */
     public static function listDepartamentos($descDepartamento, $firstReg, $lastReg, $disabled)
     {
-
+        $matrizDepartamentos = [];
+        $consultaDepartamentos = "select * from departamento where descDepartamento like ?";
+        $resultSet = DBPDO::ejecutarConsulta($consultaDepartamentos, ["%$descDepartamento%"]);
+        if ($resultSet->rowCount()) {
+            $matrizDepartamentos = $resultSet->fetchAll();
+        }
+        return $matrizDepartamentos;
         //Return matriz de departamentos
     }
 
@@ -99,7 +119,13 @@ class DepartamentoPDO {
     **/
     public static function enableDepartamento($codDepartamento)
     {
-        //Return Boolean
+        $bajaCorrecta = true;
+        $query = "delete from departamento where codDepartamento=?";
+        $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
+        if (!$resultSet->rowCount() != 1) {
+            $bajaCorrecta = false;
+        }
+        return $bajaCorrecta;
     }
 
 

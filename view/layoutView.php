@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <h1>Mantenimiento Departamento Multicapa - Juan José Rubio Iglesias</h1><a  href="index.php?location=logoff"><span class="icon-logout icon"></span><span>Cerrar Sesion</span></a>
+        <h1 style="min-width:630px;">Mantenimiento Departamento Multicapa - Juan José Rubio Iglesias</h1><span style="width:250px;"><a href="https://github.com/daw32-06/departamentoMVC"><img style="margin:0 15px" src="webroot/img/code.png"> Ver el codigo fuente</a></span><a  href="index.php?location=logoff"><span class="icon-logout icon"></span><span>Cerrar Sesion</span></a>
     </header>
     <?php
     /**
@@ -33,6 +33,6 @@
         }
         include ($vista);
     ?>
-    <div id="viewCode"><a href="mostrarCodigo.php">Ver el codigo fuente</a></div>
+
 </body>
 </html>
