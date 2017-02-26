@@ -8,10 +8,9 @@
         <th>Activo</th>
         <th>Opciones</th>
     </tr>
+
     <?php
-    if (!$departamentos){
-        echo "no existe departamentos";
-    }
+
     foreach ($departamentos as $departamento) {
     $codDepartamento = $departamento->getCodDepartamento();
     $descDepartamento = $departamento->getDescDepartamento();
@@ -44,7 +43,7 @@
 }
 ?>
 <tr>
-    <td colspan="4"><strong>Número de registros encontrados: <?php echo count($departamentos) ?></strong>
+    <td colspan="5"><strong>Número de registros encontrados: <?php echo count($departamentos) ?></strong>
     </td>
 </tr>
 </tbody>

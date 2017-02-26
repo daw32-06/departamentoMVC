@@ -1,5 +1,5 @@
 -- Base de datos a usar
-USE DAW206_PMMDBdepartamento;
+USE DAW206_JJRIDBdepartamento;
 
 -- Volcado de datos para la tabla `departamento`
 INSERT INTO departamento(codDepartamento,descDepartamento,volumenDeNegocio) VALUES

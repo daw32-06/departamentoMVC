@@ -29,7 +29,7 @@
 
 			try{
 				// Creamos la conexion
-				define("DSN","mysql:host=localhost;dbname=DAW206_PMMDBdepartamento");
+				define("DSN","mysql:host=localhost;dbname=DAW206_JJRIDBdepartamento");
 				//$dsn = "\"mysql:host=".HOSTDB.";dbname=".NOMBREDB."\"";
 				//echo $dsn;
 

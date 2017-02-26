@@ -6,6 +6,7 @@
     <!-- Aqui mostraremos los mensajes de error -->
 </form>
 
+
 <?php
     // Esta es la vista de la pagina principal que se mostrara nada mas hacer login
 

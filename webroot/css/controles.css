@@ -6,14 +6,15 @@
 /** Colores de fondo **/
 
     /** Elementos rojos  */
-.bgred{
-    background-color:#FF5252;
-}
+
 input[type=button].bgred:hover, input[type=submit].bgred:hover
 {
     background-color: #ef4545;
 }
-
+input[type=button].bgred, input[type=submit].bgred
+{
+    background-color: #FF5252;
+}
     /** Elementos blancos **/
 .bgwhite{
     background-color: #fff;
@@ -34,10 +35,13 @@ input[type=button].bgblue:hover, input[type=submit].bgblue:hover
 }
 
     /** Elementos grises **/
-.bggray{
+
+input[type=button].bggray, input[type=submit].bggray
+{
     background-color: #E0E0E0;
     color:#212121 !important;
 }
+
 input[type=button].bggray:hover, input[type=submit].bggray:hover
 {
     background-color: #D6D6D6;

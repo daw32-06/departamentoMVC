@@ -98,7 +98,7 @@ class DepartamentoPDO {
     **/
     public static function removeDepartamento($codDepartamento)
     {
-
+        
         // Return boolean
     }
 

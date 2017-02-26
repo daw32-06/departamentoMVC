@@ -2,14 +2,14 @@
 #CREATE USER IF NOT EXISTS 'usuariodepartamento'@'%' identified by 'paso';
 
 -- Base de datos a crear
-CREATE DATABASE IF NOT EXISTS `DAW206_PMMDBdepartamento`;
+CREATE DATABASE IF NOT EXISTS `DAW206_JJRIDBdepartamento`;
 
 -- Permiso al usuario creado anteriormente
-#grant all privileges on PMMDBdepartamento.* to 'usuariodepartamento'@'%';
-#grant all privileges on DAW206_PMMDBdepartamento.* to 'DAW206'@'%';
+#grant all privileges on JJRIDBdepartamento.* to 'usuariodepartamento'@'%';
+#grant all privileges on DAW206_JJRIDBdepartamento.* to 'DAW206'@'%';
 
 -- Base de datos a usar
-USE DAW206_PMMDBdepartamento;
+USE DAW206_JJRIDBdepartamento;
 
 -- Estructura para la tabla `departamento`
 CREATE TABLE departamento (
