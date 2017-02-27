@@ -42,10 +42,11 @@
 				// Ejecutamos la sentencia
 				$preparedStatament->execute($param_query);
 			}catch (PDOException $e) {
+
 				// Devolvemos null si se encuentra excepcion
 				$preparedStatament = null;
-				echo "$e";
-				// Cerramos la conexion
+
+				// Cerramos la conexion:
 				unset($db);
 			}
 			// Devolvemos null o el resultado de la sentencia preparada;

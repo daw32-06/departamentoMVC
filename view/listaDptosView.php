@@ -27,7 +27,7 @@
     print $volumenNegocio;
     print "</td>";
     print "<td>";
-    
+
     if($bajaLogica){
 
         print "<img src='webroot/img/disabled.png'>";
@@ -37,8 +37,9 @@
     }
     print "</td>";
     print "<td>";
-    print "<a href='index.php?location=modificar&codDepartamento=$codDepartamento' style='margin-right:10px' name='editar'><img src='webroot/img/editar.png'></a>";
-    print "<a href='index.php?location=borrar&codDepartamento=$codDepartamento' style='margin-right:10px' name='borrar'><img src='webroot/img/borrar.png'></a>";
+    print "<a href='index.php?location=detalle&codDepartamento=$codDepartamento'  title='Ver en detalle' style='margin-right:10px' name='editar'><img src='webroot/img/detail.png'></a>";
+    print "<a href='index.php?location=modificar&codDepartamento=$codDepartamento' title='Editar departamento' style='margin-right:10px' name='editar'><img src='webroot/img/editar.png'></a>";
+    print "<a href='index.php?location=remove&codDepartamento=$codDepartamento' title='Borrar departamento' style='margin-right:10px' name='borrar'><img src='webroot/img/borrar.png'></a>";
     print "</td>";
     print "</tr>";
 

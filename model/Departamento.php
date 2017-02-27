@@ -123,7 +123,7 @@
         **/
         public static function addDepartamento($codDepartamento, $descDepartamento, $volumenNegocio)
         {
-
+            return DepartamentoPDO::addDepartamento($codDepartamento, $descDepartamento, $volumenNegocio);
         }
 
         /**
@@ -153,7 +153,7 @@
         */
         public static function countDepartamentos($descripcion, $disabled)
         {
-
+            return DepartamentoPDO::countDepartamentos($descripcion, $disabled);
         }
 
 
@@ -177,7 +177,7 @@
         **/
         public static function removeDepartamento($codDepartamento)
         {
-
+            return DepartamentoPDO::removeDepartamento($codDepartamento);
         }
 
         /**
@@ -187,7 +187,7 @@
         **/
         public static function disableDepartamento($codDepartamento)
         {
-
+            return DepartamentoPDO::disableDepartament($codDepartamento);
         }
 
         /**
@@ -197,7 +197,7 @@
         **/
         public static function enableDepartamento($codDepartamento)
         {
-
+            return DepartamentoPDO::enableDepartamento($codDepartamento);
         }
 
         /** Backups **/

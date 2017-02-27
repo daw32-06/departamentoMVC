@@ -26,7 +26,7 @@ class DepartamentoPDO {
             $departamentos['volumenDeNegocio'] = $objDepartamento->volumenDeNegocio;
         }
         return $departamentos;
-        //Return Array del departamento
+        //Return Array del departamento￼
     }
 
     /**
@@ -36,12 +36,14 @@ class DepartamentoPDO {
     * @param float $volumenNegocio Volumen de Negocio
     * @return boolean Devuelve verdadero o falso para saber si se ha creado correctamente
     **/
-    public static function addDepartamento($codDepartamento, $descDepartamento, $volumenNegocio)
+    public static function addDepartamento($codDepartamento, $descDepartamento, $volumenDeNegocio)
     {
         $altaCorrecta = true;
         $sentenciaSQL = "insert into departamento (codDepartamento,descDepartamento,volumenDeNegocio) values(?,?,?)";
+
         $resultSet = DBPDO::ejecutarConsulta($sentenciaSQL, [$codDepartamento, $descDepartamento, $volumenDeNegocio]);
-        if ($resultSet->rowCount() != 1) {
+        //echo gettype($resultSet);
+        if (is_null($resultSet)) {
             $altaCorrecta = false;
         }
         return $altaCorrecta;
@@ -106,7 +108,14 @@ class DepartamentoPDO {
     **/
     public static function removeDepartamento($codDepartamento)
     {
+        $bajaCorrecta = true;
+        $query = "delete from departamento where codDepartamento=?";
+        $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
 
+        if (!$resultSet->rowCount() != 1) {
+            $bajaCorrecta = false;
+        }
+        return $bajaCorrecta;
         // Return boolean
     }
 
@@ -117,6 +126,14 @@ class DepartamentoPDO {
     **/
     public static function disableDepartamento($codDepartamento)
     {
+        $bajaCorrecta = true;
+        $query = "update departamento set 'disabled' = now() where codDepartamento=?";
+        $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
+
+        if (!$resultSet->rowCount() != 1) {
+            $bajaCorrecta = false;
+        }
+        return $bajaCorrecta;
         //Return boolean
     }
 
@@ -127,14 +144,14 @@ class DepartamentoPDO {
     **/
     public static function enableDepartamento($codDepartamento)
     {
-        $bajaCorrecta = true;
-        $query = "delete from departamento where codDepartamento=?";
+        $altaCorrecta = true;
+        $query = "update departamento set 'disabled' = NULL where codDepartamento=?";
         $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
 
         if (!$resultSet->rowCount() != 1) {
-            $bajaCorrecta = false;
+            $altaCorrecta = false;
         }
-        return $bajaCorrecta;
+        return $altaCorrecta;
     }
 
 
