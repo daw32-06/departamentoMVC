@@ -17,9 +17,11 @@ class DepartamentoPDO {
     **/
     public static function getDepartamento($codDepartamento)
     {
+
         $departamentos = [];
         $query = "select * from departamento where codDepartamento=?";
         $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
+
         if ($resultSet->rowCount()) {
             $objDepartamento = $resultSet->fetchObject();
             $departamentos['descDepartamento'] = $objDepartamento->descDepartamento;
