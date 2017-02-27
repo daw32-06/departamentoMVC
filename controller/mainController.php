@@ -15,7 +15,12 @@ require_once("model/Departamento.php");
 $departamentos=null;
 if(isset($_GET['descDepartamento']))
 {
-    $departamentos = Departamento::listDepartamentos("$_GET[descDepartamento]",0,0,false);
+    if(isset($_GET['deshabilitados'])){
+        $mostrarDeshabilitados = true;
+    }else{
+        $mostrarDeshabilitados = false;
+    }
+    $departamentos = Departamento::listDepartamentos("$_GET[descDepartamento]",0,0,$mostrarDeshabilitados);
 }else{
     // Si no se introduce nada por GET se listan TODOS
     $departamentos = Departamento::listDepartamentos("",0,0,false);

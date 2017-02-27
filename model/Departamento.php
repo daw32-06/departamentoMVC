@@ -36,12 +36,12 @@
         * @param string $descDepartamento Descripcion del departamento.
         * @param float $volumenNegocio Volumen de negocio del departamento.
         **/
-        function __construct($codDepartamento, $descDepartamento, $volumenNegocio)
+        function __construct($codDepartamento, $descDepartamento, $volumenNegocio, $disabled)
         {
             $this->codDepartamento = $codDepartamento;
             $this->descDepartamento = $descDepartamento;
             $this->volumenNegocio = $volumenNegocio;
-            $this->disabled = null;
+            $this->disabled = $disabled;
         }
 
         /** Getters y setters de la clase **/
@@ -134,12 +134,12 @@
         * @param boolean $disabled Campo booleano para saber si mostramos tambien los departamentos deshabilitados
         * @return departamento[] Devuelve un array de departamentos
         */
-        public static function listDepartamentos($descDepartamento,$firstReg, $lastReg, $disabled)
+        public static function listDepartamentos($descDepartamento,$firstReg, $lastReg, $showDisabled)
         {
-            $matrizDepartamentos = DepartamentoPDO::listDepartamentos($descDepartamento,0,0,false);
+            $matrizDepartamentos = DepartamentoPDO::listDepartamentos($descDepartamento,0,0,$showDisabled);
             $arrayDepartamentos = [];
             foreach ($matrizDepartamentos as $departamento) {
-                $nuevoDep = new Departamento($departamento['codDepartamento'], $departamento['descDepartamento'], $departamento['volumenDeNegocio']);
+                $nuevoDep = new Departamento($departamento['codDepartamento'], $departamento['descDepartamento'], $departamento['volumenDeNegocio'], $departamento['disabled']);
                 array_push($arrayDepartamentos, $nuevoDep);
             }
             return $arrayDepartamentos;

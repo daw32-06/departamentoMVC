@@ -69,11 +69,19 @@ class DepartamentoPDO {
     public static function listDepartamentos($descDepartamento, $firstReg, $lastReg, $disabled)
     {
         $matrizDepartamentos = [];
-        $consultaDepartamentos = "select * from departamento where descDepartamento like ?";
+        // Si disabled es true devolvemos todos en caso contrario
+        if($disabled)
+        {
+            $consultaDepartamentos = "select * from departamento where descDepartamento like ?";
+        }else{
+            $consultaDepartamentos = "select * from departamento where descDepartamento like ? and disabled is NULL";
+        }
         $resultSet = DBPDO::ejecutarConsulta($consultaDepartamentos, ["%$descDepartamento%"]);
+
         if ($resultSet->rowCount()) {
             $matrizDepartamentos = $resultSet->fetchAll();
         }
+
         return $matrizDepartamentos;
         //Return matriz de departamentos
     }
@@ -98,7 +106,7 @@ class DepartamentoPDO {
     **/
     public static function removeDepartamento($codDepartamento)
     {
-        
+
         // Return boolean
     }
 
@@ -122,6 +130,7 @@ class DepartamentoPDO {
         $bajaCorrecta = true;
         $query = "delete from departamento where codDepartamento=?";
         $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
+
         if (!$resultSet->rowCount() != 1) {
             $bajaCorrecta = false;
         }

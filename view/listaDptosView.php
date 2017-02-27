@@ -16,7 +16,6 @@
     $descDepartamento = $departamento->getDescDepartamento();
     $volumenNegocio = $departamento->getVolumenNegocio();
     $bajaLogica = $departamento->isDisabled();
-    $bajaLogica = "";
     print "<tr>";
     print "<td>";
     print  $codDepartamento;
@@ -28,9 +27,12 @@
     print $volumenNegocio;
     print "</td>";
     print "<td>";
+    
     if($bajaLogica){
+
         print "<img src='webroot/img/disabled.png'>";
     }else{
+
         print "<img src='webroot/img/enabled.png'>";
     }
     print "</td>";
