@@ -2,7 +2,7 @@
     <div class="popup">
         <div class="popupTitulo">Nuevo departamento</div>
         <div class="popupContenido" style="text-align:center;">
-        <div><?php echo "<p>".$_SESSION["error"]."</p>";?></div>
+
         <div class="inputDescripcion">Codigo departamento</div>
         <input type="text" name="codDepartamento" required pattern="[A-Z]{3}" placeholder="AAA">
         <br><br>
