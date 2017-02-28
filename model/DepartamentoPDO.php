@@ -21,11 +21,16 @@ class DepartamentoPDO {
         $departamentos = [];
         $query = "select * from departamento where codDepartamento=?";
         $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
-
-        if ($resultSet->rowCount()) {
-            $objDepartamento = $resultSet->fetchObject();
-            $departamentos['descDepartamento'] = $objDepartamento->descDepartamento;
-            $departamentos['volumenDeNegocio'] = $objDepartamento->volumenDeNegocio;
+        if(!is_null($resultSet))
+        {
+            if ($resultSet->rowCount()) {
+                $objDepartamento = $resultSet->fetchObject();
+                $departamentos['descDepartamento'] = $objDepartamento->descDepartamento;
+                $departamentos['volumenDeNegocio'] = $objDepartamento->volumenDeNegocio;
+                $departamentos['disabled'] = $objDepartamento->disabled;
+            }
+        }else{
+            $departamentos = null;
         }
         return $departamentos;
         //Return Array del departamento￼
@@ -100,8 +105,15 @@ class DepartamentoPDO {
     **/
     public static function modifyDepartamento($codDepartamento, $descDepartamento, $volumenNegocio, $disabled)
     {
+        $modificacionCorrecta = true;
+        //update departamento set descDepartamento='analist' ,  volumenDeNegocio = 300 where codDepartamento = "ANA";
+        $query = "update departamento set descDepartamento = \"$descDepartamento\", volumenDeNegocio = \"$volumenNegocio\" where codDepartamento=?";
+        $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
 
-        // Return boolean
+        if (is_null($resultSet)) {
+            $modificacionCorrecta = false;
+        }
+        return $modificacionCorrecta;
     }
     /**
     * Elimina definitivamente un departamento en la BBDD

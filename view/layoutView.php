@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="webroot/css/controles.css">
     <link rel="stylesheet" href="webroot/css/fontello.css">
     <link rel="stylesheet" href="webroot/css/main_style.min.css">
-    <style>
+    <link rel="shortcut icon" type="image/png" href="webroot/favicon.png"/>
 
-
-    </style>
+    <title>DepartamentoMVC</title>
 </head>
 <body>
 

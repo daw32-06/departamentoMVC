@@ -1,10 +1,10 @@
-<!--<form action="index.php?location=detail" method="post" name="newDepartamento">-->
+<!--<form action="index.php?location=modify" method="post" name="newDepartamento">-->
 <?php $departamento=$_SESSION["departamento"]; ?>
-<?php echo $error; ?>
+
     <div class="popup">
         <div class="popupTitulo">Detalle</div>
         <div class="popupContenido" style="text-align:center;">
-        <div><?php echo "<p>".$_SESSION["error"]."</p>";?></div>
+
         <div class="inputDescripcion">Codigo departamento</div>
         <input type="text" name="codDepartamento" required pattern="[A-Z]{3}" disabled placeholder="AAA" value="<?php echo $departamento->getCodDepartamento(); ?>">
         <br><br>

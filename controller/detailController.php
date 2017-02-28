@@ -14,7 +14,7 @@ if(isset($_GET['codDepartamento']))
     $error="Error!";
 }
 
-include_once("view/viewDetail.php");
+include_once("view/detailView.php");
 /*
 if($cargarFormulario){
     include_once("view/newView.php");

@@ -109,7 +109,7 @@
             $departamento = null;
             $departamentos = DepartamentoPDO::getDepartamento($codDepartamento); //Array con la información del departamento
             if ($departamentos) {//Si el array contiene algo, se crea el objeto
-                $departamento = new Departamento($codDepartamento, $departamentos['descDepartamento'], $departamentos['volumenDeNegocio']);
+                $departamento = new Departamento($codDepartamento, $departamentos['descDepartamento'], $departamentos['volumenDeNegocio'], $departamentos['disabled']);
             }
             return $departamento;
         }
@@ -165,9 +165,9 @@
         * @param mixed $disabled Fecha en caso de baja logica o null
         * @return booolean Para comprobar si se ha ejecutado correctamente
         **/
-        public static function modifyDepartamento($codDepartamento, $descDepartamento, $volumenNegocio, $disabled)
+        public static function modifyDepartamento($codDepartamento, $descDepartamento, $volumenDeNegocio, $disabled)
         {
-
+            return DepartamentoPDO::modifyDepartamento($codDepartamento, $descDepartamento, $volumenDeNegocio, $disabled);
         }
 
         /**
