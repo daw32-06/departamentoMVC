@@ -107,7 +107,12 @@ class DepartamentoPDO {
     {
         $modificacionCorrecta = true;
         //update departamento set descDepartamento='analist' ,  volumenDeNegocio = 300 where codDepartamento = "ANA";
-        $query = "update departamento set descDepartamento = \"$descDepartamento\", volumenDeNegocio = \"$volumenNegocio\" where codDepartamento=?";
+        if(is_null($disabled))
+        {
+            $disabled = 'NULL';
+        }
+        $query = "update departamento set descDepartamento = \"$descDepartamento\", volumenDeNegocio = \"$volumenNegocio\", disabled = $disabled where codDepartamento=?";
+        //die($query);
         $resultSet = DBPDO::ejecutarConsulta($query, [$codDepartamento]);
 
         if (is_null($resultSet)) {

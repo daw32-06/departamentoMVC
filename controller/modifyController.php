@@ -22,8 +22,14 @@ if(isset($_POST['GUARDAR']))
     if(isset($_POST['descDepartamento']) && isset($_POST['volumenDeNegocio']))
     {
         //Aqui comprobariamos con expresiones regulares todos los campos...
+        if(isset($_POST['disabled']))
+        {
+            $disabled = null;
+        }else{
+            $disabled = "now()";
+        }
 
-        $resultado=Departamento::modifyDepartamento($_POST['codDepartamento'],$_POST['descDepartamento'],$_POST['volumenDeNegocio'],null);
+        $resultado=Departamento::modifyDepartamento($_POST['codDepartamento'],$_POST['descDepartamento'],$_POST['volumenDeNegocio'],$disabled);
 
         //die(gettype($resultado));
         if(!$resultado)
