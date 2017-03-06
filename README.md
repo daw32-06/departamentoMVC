@@ -4,4 +4,4 @@
 ## Login LogOff
 **Diagrama de clases**
 
-![Diagrama de clases](https://i.imgur.com/o8BT0PN.png)
+![Diagrama de clases](http://imgur.com/a/vwKcw)
